@@ -4,12 +4,13 @@ Infrastructure as Code (IaC) for managing a homelab environment using Pulumi and
 
 ## Overview
 
-This repository contains the infrastructure configuration for a homelab environment, using modern IaC practices with Pulumi and Kubernetes.
+This repository contains the infrastructure configuration for a homelab environment following modern IaC practices with Pulumi and Kubernetes. The project uses Python and uv for dependency management.
 
 ## Prerequisites
 
 - [Pulumi CLI](https://www.pulumi.com/docs/get-started/install/)
-- [Node.js](https://nodejs.org/) (v16 or later)
+- [Python 3.13 or later](https://www.python.org/downloads/)
+- [uv](https://pypi.org/project/uv/) (for dependency management)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [Git](https://git-scm.com/downloads)
 
@@ -21,41 +22,42 @@ homelab-IAC/
 │   ├── stacks/
 │   │   ├── homelab-dev.ts    # Development environment stack
 │   │   └── homelab-prod.ts   # Production environment stack
-│   └── components/           # Reusable Pulumi components
+│   └── ...                 # Other Pulumi configuration files
 ├── kubernetes/              # Kubernetes manifests
-│   ├── applications/
-│   └── infrastructure/
-└── docs/                    # Project documentation
+│   ├── ...                # Kubernetes deployment files
+├── docs/                    # Project documentation
+├── hello.py                 # Sample Python script
+└── pyproject.toml           # Project configuration and dependencies
 ```
 
 ## Getting Started
 
 1. Clone the repository:
-```bash
-git clone https://github.com/SPRIME01/homelab-iac.git
-cd homelab-iac
-```
+   ```bash
+   git clone https://github.com/SPRIME01/homelab-iac.git
+   cd homelab-iac
+   ```
 
-2. Install dependencies:
-```bash
-npm install
-```
+2. Install Python dependencies using uv:
+   ```bash
+   uv install
+   ```
 
 3. Initialize Pulumi stack:
-```bash
-cd pulumi
-pulumi stack init dev
-```
+   ```bash
+   cd pulumi
+   pulumi stack init dev
+   ```
 
 4. Configure your environment:
-```bash
-pulumi config set kubernetes:context your-context-name
-```
+   ```bash
+   pulumi config set kubernetes:context your-context-name
+   ```
 
 5. Deploy the infrastructure:
-```bash
-pulumi up
-```
+   ```bash
+   pulumi up
+   ```
 
 ## Environment Management
 
