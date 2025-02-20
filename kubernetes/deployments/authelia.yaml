@@ -1,0 +1,23 @@
+# Authelia Deployment Manifest
+
+# Placeholder for Authelia deployment configuration
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authelia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: authelia
+  template:
+    metadata:
+      labels:
+        app: authelia
+    spec:
+      containers:
+      - name: authelia
+        image: authelia:latest
+        ports:
+        - containerPort: 80
