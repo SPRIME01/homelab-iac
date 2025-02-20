@@ -1,0 +1,27 @@
+[project]
+name = "homelab-iac"
+version = "0.1.0"
+description = "Infrastructure as Code (IaC) for managing a homelab environment using Pulumi, Kubernetes, and Ansible."
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "MIT License" }
+authors = [
+    { name = "SPRIME01", email = "your.email@example.com" }
+]
+keywords = ["IaC", "Pulumi", "Kubernetes", "Ansible", "homelab", "DevOps", "Infrastructure"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: System :: Software Distribution",
+]
+
+dependencies = [
+    "pulumi>=3.0,<4.0",            # Core Pulumi library for IaC
+    "pulumi-kubernetes>=3.0,<4.0",   # Pulumi provider for Kubernetes
+    "kubernetes>=18.0.0",          # Python client for Kubernetes
+    "ansible>=2.12,<3.0",          # For automated configuration management
+    "ray>=2.0"                    # For distributed AI/ML workloads (used on your Jetson)
+]

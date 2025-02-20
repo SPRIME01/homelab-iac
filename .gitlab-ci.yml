@@ -1,0 +1,28 @@
+stages:
+  - test
+  - deploy
+
+variables:
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
+test:
+  stage: test
+  image: python:3.13
+  script:
+    - pip install --upgrade pip
+    - pip install mypy ruff pytest pytest-bdd yamllint ymlfmt uv
+    - uv install
+    - mypy .
+    - ruff .
+    - pytest
+    - yamllint .
+    - ymlfmt check .
+
+deploy:
+  stage: deploy
+  image: python:3.13
+  script:
+    - echo "Deploying infrastructure..."
+    - cd pulumi && pulumi up --yes || echo "Deployment skipped (pulumi not configured)"
+  only:
+    - main
